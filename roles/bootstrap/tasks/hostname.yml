@@ -1,4 +1,5 @@
 ---
 - name: Set hostname
-  action: shell hostnamectl set-hostname {{ hostname }}
+  hostname:
+    name: "{{ hostname }}"
                   
