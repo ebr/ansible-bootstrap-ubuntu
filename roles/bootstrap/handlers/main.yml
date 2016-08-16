@@ -7,3 +7,8 @@
 - name: update tzdata
   command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
 
+- name: restart fail2ban
+  service:
+    name: fail2ban
+    state: restarted
+

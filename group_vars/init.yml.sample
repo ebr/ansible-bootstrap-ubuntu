@@ -3,3 +3,4 @@ username:
 password: 
 id_rsa_path: "~/.ssh/id_rsa.pub"
 sudoers: y
+passwordless: y

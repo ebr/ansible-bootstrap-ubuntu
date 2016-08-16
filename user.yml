@@ -24,6 +24,11 @@
       private: no
 
     - name: "sudoers"
-      prompt: "Add user to sudoers group (y/n)"
+      prompt: "Allow user to sudo (y/n)"
+      default: 'n'
+      private: no
+
+    - name: "passwordless"
+      prompt: "Allow user to sudo without a password"
       default: 'n'
       private: no
