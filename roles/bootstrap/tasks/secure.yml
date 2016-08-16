@@ -1,6 +1,8 @@
 ---
 - name: Install fail2ban
-  action: apt pkg=fail2ban state=installed
+  apt:
+    pkg: fail2ban
+    state: installed
 
 - name: Configure fail2ban to listen to systemd journal
   template:
@@ -21,20 +23,35 @@
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
   notify: restart ssh
 
-- name: Install packages
-  action: apt pkg=ufw state=installed
+- name: Secure - Install packages
+  apt:
+    pkg: ufw
+    state: installed
 
 - name: Setup ufw 22/tcp
-  action: shell ufw allow 22/tcp
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 22
 
 - name: Setup ufw 80/tcp
-  action: shell ufw allow 80/tcp
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 80
 
 - name: Setup ufw 443/tcp
-  action: shell ufw allow 443/tcp
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 443
 
 - name: Enable ufw
-  action: shell echo 'y' | ufw enable
+  ufw:
+    state: enabled
+    policy: deny
+    direction: incoming
 
 - name: Delete root password
-  action: shell passwd -d root
+  become: yes
+  command: "passwd -d root"
