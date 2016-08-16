@@ -34,17 +34,17 @@
     proto: tcp
     port: 22
 
-- name: Setup ufw 80/tcp
-  ufw:
-    rule: allow
-    proto: tcp
-    port: 80
+# - name: Setup ufw 80/tcp
+#   ufw:
+#     rule: allow
+#     proto: tcp
+#     port: 80
 
-- name: Setup ufw 443/tcp
-  ufw:
-    rule: allow
-    proto: tcp
-    port: 443
+# - name: Setup ufw 443/tcp
+#   ufw:
+#     rule: allow
+#     proto: tcp
+#     port: 443
 
 - name: Enable ufw
   ufw:
