@@ -4,10 +4,17 @@
 
 - name: Configure fail2ban to listen to systemd journal
   template:
+    src: fail2ban/sshd.conf
     dest: /etc/fail2ban/jail.d/sshd.conf
 
 - name: Disallow password authentication
-  action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
+  blockinfile:
+    dest: /etc/ssh/sshd_config
+    insertafter: "UsePAM"
+    block: |
+      ChallengeResponseAuthentication no
+      PasswordAuthentication no
+    state: present
   notify: restart ssh
 
 - name: Disallow root SSH access

@@ -1,6 +1,6 @@
 ---
 - name: Test SSH connection as user
-  hosts: server
+  hosts: init
   tasks:
     - name: Who Am I 
       command: whoami

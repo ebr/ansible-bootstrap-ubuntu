@@ -1,8 +1,7 @@
 ---
 - name: Early Bootstrap
   gather_facts: no
-  hosts: servers
-  remote_user: root
+  hosts: init
   roles:
     - python
     - user
