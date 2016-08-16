@@ -4,9 +4,8 @@
     name: "{{ hostname }}"
 
 - name: update /etc/hosts
-  lineinfile:
+  replace:
     dest: /etc/hosts
-    regexp: '^127\.0\.0\.1/slocalhost'
-    line: "127.0.0.1 localhost {{ hostname }}"
-    #### TODO this just appends hostname to the file; replace the line.
+    regexp: '^127\.0\.0\.1\slocalhost$'
+    replace: "127.0.0.1\tlocalhost {{ hostname }}"
                   
