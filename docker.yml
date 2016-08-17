@@ -1,0 +1,6 @@
+---
+- name: Make a Docker host
+  hosts: server
+  become: yes
+  roles:
+    - docker
