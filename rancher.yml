@@ -1,5 +1,6 @@
 ---
 - name: Rancher Server
   hosts: rancher
+  become: yes
   roles:
     - rancher
