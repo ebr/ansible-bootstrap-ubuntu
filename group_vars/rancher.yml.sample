@@ -1,0 +1,3 @@
+---
+rancher_server_url: my.rancher.tld
+compose_project_name: rancher

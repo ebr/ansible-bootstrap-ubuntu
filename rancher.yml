@@ -1,0 +1,5 @@
+---
+- name: Rancher Server
+  hosts: rancher
+  roles:
+    - rancher
